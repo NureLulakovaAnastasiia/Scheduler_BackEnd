@@ -83,6 +83,7 @@ namespace Scheduler_BackEnd
                     }
                     startTime = meeting.EndTime.AddMinutes(1);
                 }
+                //adds free slot from between last meeting and latest required time
                 if(meetingRequirements.LatestEnd > startTime
                     && (meetingRequirements.LatestEnd - startTime).TotalMinutes >= meetingRequirements.DurationMinutes)
                 {
@@ -138,6 +139,7 @@ namespace Scheduler_BackEnd
                         continue;
                     }
 
+                    //fit slot start time to requirements start time if needed
                     if(timeSlot.StartTime < meetingRequirements.EarliestStart 
                         && meetingRequirements.EarliestStart < timeSlot.EndTime)
                     {
@@ -151,6 +153,7 @@ namespace Scheduler_BackEnd
                     var numOfOverlapping = 1;
                     var overlappedSlots = new List<TimeSlot>() { timeSlot};
 
+                    //checks other users' slots for matching
                     for (int j = 0; j < data.Count; j++)
                     {
                         if(data.Keys.ElementAt(j) == busiest)
@@ -171,11 +174,12 @@ namespace Scheduler_BackEnd
                         }
                         else
                         {
-                            //no overlapped slots from user - get next first user's slot
+                            //no overlapped slots from user - go to next first user's slot
                             break;
                         }
                     }
 
+                    //true only when every required participant has matching free slot
                     if (numOfOverlapping == data.Count)
                     {
                         var slotToAdd = new TimeSlot
