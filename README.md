@@ -9,8 +9,10 @@ After project running you will see Swagger interface in browser. Here you will h
 
 **Some limitations:**
 - If you use time interval in /meetings endpoint requirements outside working hours, no slot will be provided;
+- After project rerun no data will be saved.
 
 **Test data:**
+
 *- /users (enter one by one)*
  
  {
