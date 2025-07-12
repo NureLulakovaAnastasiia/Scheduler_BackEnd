@@ -12,6 +12,7 @@ After project running you will see Swagger interface in browser. Here you will h
 
 **Test data:**
 *- /users (enter one by one)*
+ 
  {
     "id": 1,
     "name": "Alice"
@@ -28,6 +29,7 @@ After project running you will see Swagger interface in browser. Here you will h
   }
   
 *- /meetings/add*
+ 
  {
     "id": 1,
     "participants": [ 1,2 ],
@@ -43,6 +45,7 @@ After project running you will see Swagger interface in browser. Here you will h
   }
 
 *- /meetings*
+ 
  {
     "participantsIds": [1, 2, 3],
     "durationMinutes": 60,
